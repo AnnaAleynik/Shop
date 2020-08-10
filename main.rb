@@ -3,6 +3,7 @@
 require_relative 'products/product'
 require_relative 'products/book'
 require_relative 'products/film'
+require_relative 'products/product_collection'
 
 lion = Film.new({
                     price: 990,
@@ -34,5 +35,13 @@ puts book
 
 film = Film.from_file(current + '/data/films/Inception.txt')
 puts film
+puts '-----------'
+# product = Product.from_file('hh')
 
-product = Product.from_file('hh')
+collection = ProductCollection.from_dir(current + '/data')
+
+collection.sort!(by: :price, order: :asc)
+
+collection.to_a.each do |prod|
+  puts prod
+end

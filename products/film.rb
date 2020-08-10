@@ -21,6 +21,8 @@ class Film < Product
       file = File.new(path, "r:UTF-8")
 
       lines = file.readlines.map { |l| l.chomp}
+      file.close
+
       params = {
           title: lines[0],
           director: lines[1],

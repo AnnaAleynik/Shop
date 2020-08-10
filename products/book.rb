@@ -18,6 +18,8 @@ class Book < Product
       file = File.new(path, "r:UTF-8")
 
       lines = file.readlines.map { |s| s.chomp }
+      file.close
+
       params = {
           title: lines[0],
           genre: lines[1],
